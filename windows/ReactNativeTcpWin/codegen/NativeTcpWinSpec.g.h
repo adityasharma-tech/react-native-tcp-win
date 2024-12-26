@@ -19,6 +19,9 @@ struct TcpWinSpec : winrt::Microsoft::ReactNative::TurboModuleSpec {
   static constexpr auto methods = std::tuple{
       SyncMethod<double(double, double) noexcept>{0, L"multiply"},
       SyncMethod<double(double, double) noexcept>{1, L"add"},
+      SyncMethod<double() noexcept>{2, L"InitializeTcpSocket"},
+      SyncMethod<double(std::string, std::string) noexcept>{3, L"ConnectToServer"},
+      SyncMethod<double() noexcept>{4, L"DisconnectFromServer"},
   };
 
   template <class TModule>
@@ -35,6 +38,21 @@ struct TcpWinSpec : winrt::Microsoft::ReactNative::TurboModuleSpec {
           "add",
           "    REACT_SYNC_METHOD(add) double add(double a, double b) noexcept { /* implementation */ }\n"
           "    REACT_SYNC_METHOD(add) static double add(double a, double b) noexcept { /* implementation */ }\n");
+    REACT_SHOW_METHOD_SPEC_ERRORS(
+          2,
+          "InitializeTcpSocket",
+          "    REACT_SYNC_METHOD(InitializeTcpSocket) double InitializeTcpSocket() noexcept { /* implementation */ }\n"
+          "    REACT_SYNC_METHOD(InitializeTcpSocket) static double InitializeTcpSocket() noexcept { /* implementation */ }\n");
+    REACT_SHOW_METHOD_SPEC_ERRORS(
+          3,
+          "ConnectToServer",
+          "    REACT_SYNC_METHOD(ConnectToServer) double ConnectToServer(std::string ipAddress, std::string port) noexcept { /* implementation */ }\n"
+          "    REACT_SYNC_METHOD(ConnectToServer) static double ConnectToServer(std::string ipAddress, std::string port) noexcept { /* implementation */ }\n");
+    REACT_SHOW_METHOD_SPEC_ERRORS(
+          4,
+          "DisconnectFromServer",
+          "    REACT_SYNC_METHOD(DisconnectFromServer) double DisconnectFromServer() noexcept { /* implementation */ }\n"
+          "    REACT_SYNC_METHOD(DisconnectFromServer) static double DisconnectFromServer() noexcept { /* implementation */ }\n");
   }
 };
 

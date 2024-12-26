@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "ReactNativeTcpWin.h"
+#include "TcpClient.h"
 #include "TcpClient.cpp"
 
 namespace winrt::ReactNativeTcpWin
@@ -25,28 +26,28 @@ namespace winrt::ReactNativeTcpWin
     return a + b;
   }
 
-  int ReactNativeTcpWin::InitializeTcpSocket() noexcept
+  double ReactNativeTcpWin::InitializeTcpSocket() noexcept
   {
     if(!client.Initialize()){
-      return 1;
+      return 1.0;
     }
-    return 0;
+    return 0.0;
   }
 
-  int ReactNativeTcpWin::ConnectToServer(std::string ipAddress, std::string port) noexcept {
+  double ReactNativeTcpWin::ConnectToServer(std::string ipAddress, std::string port) noexcept {
     if(!client.Connect(ipAddress, port)){
-      return 1;
+      return 1.0;
     }
-    return 0;
+    return 0.0;
   }
 
-  int ReactNativeTcpWin::SendMessage(std::string message) noexcept {
-    return client.Send(message);
+  double ReactNativeTcpWin::SendMessage(std::string message) noexcept {
+    return 1.0;
   }
 
-  int ReactNativeTcpWin::DisconnectFromServer() noexcept {
+  double ReactNativeTcpWin::DisconnectFromServer() noexcept {
     client.Disconnect();
-    return 0;
+    return 0.0;
   }
   
 
