@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-tcp-win';
+import { add } from 'react-native-tcp-win';
 
-const result = multiply(3, 7);
+const result = add(3, 7);
 
 export default function App() {
   return (

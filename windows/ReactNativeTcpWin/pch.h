@@ -13,6 +13,9 @@
 
 // Windows Header Files
 #include <windows.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <iphlpapi.h>
 #undef GetCurrentTime
 #include <unknwn.h>
 
@@ -20,6 +23,8 @@
 #include <winrt/base.h>
 #include <CppWinRTIncludes.h>
 #include <winrt/Microsoft.ReactNative.h>
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
 
 // C RunTime Header Files
 #include <malloc.h>

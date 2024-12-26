@@ -18,6 +18,7 @@ namespace ReactNativeTcpWinCodegen {
 struct TcpWinSpec : winrt::Microsoft::ReactNative::TurboModuleSpec {
   static constexpr auto methods = std::tuple{
       SyncMethod<double(double, double) noexcept>{0, L"multiply"},
+      SyncMethod<double(double, double) noexcept>{1, L"add"},
   };
 
   template <class TModule>
@@ -29,6 +30,11 @@ struct TcpWinSpec : winrt::Microsoft::ReactNative::TurboModuleSpec {
           "multiply",
           "    REACT_SYNC_METHOD(multiply) double multiply(double a, double b) noexcept { /* implementation */ }\n"
           "    REACT_SYNC_METHOD(multiply) static double multiply(double a, double b) noexcept { /* implementation */ }\n");
+    REACT_SHOW_METHOD_SPEC_ERRORS(
+          1,
+          "add",
+          "    REACT_SYNC_METHOD(add) double add(double a, double b) noexcept { /* implementation */ }\n"
+          "    REACT_SYNC_METHOD(add) static double add(double a, double b) noexcept { /* implementation */ }\n");
   }
 };
 
